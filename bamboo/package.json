@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel start:**",
-    "start:server": "node ./server/app.js",
+    "start:server": "python app.py",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
