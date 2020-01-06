@@ -1,0 +1,10 @@
+.mainboard {
+  background-color: white;
+  color: black;
+
+  margin-left: 160px;
+  padding: 0px 10px;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  width: 100%; /* Full-height: remove this if you want "auto" height */
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+}
