@@ -14,7 +14,7 @@ class SideBarSender extends React.Component {
     return (
       <button
         type='button'
-        class='sidebaritem'
+        className='sidebaritem'
         onDoubleClick={this.handleDoubleClick}>
         {this.props.name}
       </button>
