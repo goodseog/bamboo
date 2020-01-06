@@ -4,6 +4,7 @@ import './App.css';
 
 import SideBar from './components/sidebar/SideBar'
 import MainBoard from './components/mainboard/MainBoard'
+import { BambooProvider } from './contexts/BambooContext'
 
 
 class App extends React.Component {
@@ -24,8 +25,10 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="App">
-        <SideBar />
-        <MainBoard />
+        <BambooProvider>
+          <SideBar />
+          <MainBoard />
+        </BambooProvider>
       </div>
     )
   }

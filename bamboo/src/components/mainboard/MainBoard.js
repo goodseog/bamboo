@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './MainBoard.css'
+
 class MainBoard extends React.Component {
     render = () => {
         return (
