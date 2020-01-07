@@ -7,7 +7,7 @@ class SideBarSender extends React.Component {
 
   handleDoubleClick = (e) => {
     console.log('double click!!')
-    this.props.addNode(this.props.name)
+    this.props.addNode(this.props.nodeName)
   }
 
   render = () => {
@@ -16,7 +16,7 @@ class SideBarSender extends React.Component {
         type='button'
         className='sidebaritem'
         onDoubleClick={this.handleDoubleClick}>
-        {this.props.name}
+        {this.props.nodeName}
       </button>
     )
   }
@@ -30,7 +30,7 @@ class SideBarItem extends React.Component {
           ({ state, actions }) => (
             <SideBarSender
               addNode={actions.addNode}
-              name={this.props.name}
+              nodeName={this.props.nodeName}
             />
           )
         }

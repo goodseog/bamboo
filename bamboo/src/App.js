@@ -8,12 +8,7 @@ import { BambooProvider } from './contexts/BambooContext'
 
 
 class App extends React.Component {
-  state = {
-    data: {
-      title: null,
-      body: null,
-    },
-  }
+  state = {}
 
   componentDidMount = () => {
     axios.get('/api')

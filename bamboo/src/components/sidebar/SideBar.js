@@ -8,8 +8,8 @@ class SideBar extends React.Component {
   render = () => {
     return (
       <div className="sidebar">
-        <SideBarItem name='Data Reader' />
-        <SideBarItem name='Data Writer' />
+        <SideBarItem nodeName='Data Reader' />
+        <SideBarItem nodeName='Data Writer' />
       </div>
     )
   }
