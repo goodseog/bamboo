@@ -6,6 +6,7 @@ import DataWriter from './nodes/DataWriter'
 const Context = React.createContext();
 const { Provider, Consumer: BambooConsumer } = Context;
 
+let glob_count = 0
 
 class BambooProvider extends React.Component {
   state = {
@@ -18,10 +19,10 @@ class BambooProvider extends React.Component {
       const graph = this.state.graph;
       switch (name) {
         case 'Data Reader':
-          graph.push(new DataReader());
+          graph.push(new DataReader(glob_count++));
           break;
         case 'Data Writer':
-          graph.push(new DataWriter());
+          graph.push(new DataWriter(glob_count++aaaaa));
           break;
         default:
           console.error('Nodetype does not exist')

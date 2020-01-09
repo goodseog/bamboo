@@ -1,8 +1,7 @@
 class BambooNode {
-    constructor() {
-        this.next = []
+  constructor() {
+      this.next = []
     }
-
 }
 
 export default BambooNode;
