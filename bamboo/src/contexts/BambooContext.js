@@ -22,7 +22,7 @@ class BambooProvider extends React.Component {
           graph.push(new DataReader(glob_count++));
           break;
         case 'Data Writer':
-          graph.push(new DataWriter(glob_count++aaaaa));
+          graph.push(new DataWriter(glob_count++));
           break;
         default:
           console.error('Nodetype does not exist')

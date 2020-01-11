@@ -12,7 +12,7 @@ class MainBoard extends React.Component {
 
   render = () => {
     return (
-      <BambooConsumer>a
+      <BambooConsumer>
         {(bamboo) => (
           <div className="mainboard">
             {bamboo.state.graph.map((node) => this.renderNode(node))}
