@@ -1,18 +1,24 @@
 .sidebar {
-  background-color: black;
-  color: white;
+    background-color: #012639;
+    color: #DFEFEC;
 
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  overflow-x: hidden; /* Disable horizontal scroll */
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+    top: 0; /* Stay at the top */
+    overflow-x: hidden; /* Disable horizontal scroll */
+
+    box-shadow: 2px 0px 2px 2px gray;
+    text-align: center;
 }
 
 .sidebaritem {
+    background-color: #059596;
+    border-color: #059596;
+    color: #DFEFEC;
+    height: 50px;
+    width: 200px; /* Set the width of the sidebar */
 
-  height: 50px;
-  width: 160px; /* Set the width of the sidebar */
-
+    margin: auto;
 }
