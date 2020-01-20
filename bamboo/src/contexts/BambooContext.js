@@ -2,33 +2,18 @@ import React from 'react';
 
 import DataReader from './nodes/DataReader'
 import DataWriter from './nodes/DataWriter'
+import { popup_bg_style } from '../components/popup/SettingPopup'
 
 const Context = React.createContext();
 const { Provider, Consumer: BambooConsumer } = Context;
 
 let glob_count = 0
 
-let popup_style = (display) => {
-  return {
-    display: display,
-    position: 'fixed',
-    zIndex: '1',
-    left: 0,
-    top: 0,
-    width: '100%',
-    height: '100%',
-    overflow: 'auto',
-    backgroundColor: 'rgb(0, 0, 0)',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    textAlign: 'center',
-  }
-}
-
 class BambooProvider extends React.Component {
   state = {
     filename: '',
     graph: [],
-    popup: popup_style('none'),
+    popup: popup_bg_style('none'),
   }
 
   actions = {
@@ -49,11 +34,11 @@ class BambooProvider extends React.Component {
     },
     showPopup: () => {
       console.log("Show popup!!")
-      this.setState({ popup: popup_style('block') })
+      this.setState({ popup: popup_bg_style('block') })
     },
     hidePopup: () => { 
       console.log("hide popup!!")
-      this.setState({ popup: popup_style('none') })
+      this.setState({ popup: popup_bg_style('none') })
     }
 
   }

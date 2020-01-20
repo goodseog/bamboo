@@ -3,15 +3,23 @@ import React from 'react'
 import { BambooConsumer } from '../../contexts/BambooContext'
 import './SettingPopup.css'
 
+let popup_bg_style = (display) => {
+  return {
+    display: display,
+    position: 'fixed',
+    zIndex: 1,
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
+    overflow: 'auto',
+    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  }
+}
+
 class SettingPopupImpl extends React.Component {
   state = {};
-
-  handleClickBackground = (ev) => {
-    this.props.hidePopup()
-  }
-
-  handleClickFront = (ev) => {
-  }
 
   render = () => {
     return (
@@ -21,11 +29,10 @@ class SettingPopupImpl extends React.Component {
             className="popup-back"
             onClick={this.handleClickBackground}
             style={bamboo.state.popup}>
-            <div
-              className="popup-front"
-              onClick={this.handleClickFront}>
-
-            </div>
+            <section className="popup-front">
+              <button type="button" onClick={this.props.hidePopup}>Close</button>
+              <p>popup</p>
+            </section>
           </div>
         )}
       </BambooConsumer>
@@ -47,4 +54,7 @@ class SettingPopup extends React.Component {
   }
 }
 
-export default SettingPopup;
+export {
+  popup_bg_style,
+  SettingPopup
+};

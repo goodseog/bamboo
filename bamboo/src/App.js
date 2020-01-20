@@ -4,7 +4,7 @@ import './App.css';
 
 import SideBar from './components/sidebar/SideBar'
 import MainBoard from './components/mainboard/MainBoard'
-import SettingPopup from './components/popup/SettingPopup';
+import { SettingPopup } from './components/popup/SettingPopup';
 import { BambooProvider } from './contexts/BambooContext'
 
 

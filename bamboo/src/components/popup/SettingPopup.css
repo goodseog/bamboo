@@ -2,8 +2,10 @@
     background-color: white;
     z-index: 2; /* Sit on top */
 
-    width: 50%; /* Full width */
-    height: 80%; /* Full height */
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
     overflow: auto; /* Enable scroll if needed */
-
 }
