@@ -7,7 +7,9 @@ import './MainBoard.css'
 
 class MainBoard extends React.Component {
   renderNode = (node) => {
-    return <MainBoardCard text={node.constructor.name} />
+    return (
+      <MainBoardCard {...node} id={node.key}/>
+    )
   }
 
   render = () => {

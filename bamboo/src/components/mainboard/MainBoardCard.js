@@ -2,20 +2,8 @@
 import React from 'react'
 import { BambooConsumer } from '../../contexts/BambooContext';
 
-let genX = 60;
-let genY = 60;
-
 class MainBoardCardImpl extends React.Component {
-  state = {
-    left: genX,
-    top: genY,
-    enter: false,
-  }
-
-  componentWillMount = () => {
-    genX += 20;
-    genY += 20;
-  }
+  state = {...this.props}
 
   handleDragStart = (ev) => {
     this.startX = ev.clientX
@@ -25,19 +13,14 @@ class MainBoardCardImpl extends React.Component {
   handleDragEnd = (ev) => {
     let dx = ev.clientX - this.startX
     let dy = ev.clientY - this.startY
-    this.setState({ left: this.state.left + dx, top: this.state.top + dy })
-  }
-
-  handleMouseEnter = (ev) => { 
-    this.setState({enter: true})
-  }
-
-  handleMouseLeave = (ev) => { 
-    this.setState({enter: false})    
+    let left = this.state.left + dx
+    let top = this.state.top + dy
+    this.setState({ left: left, top: top })
+    this.props.setPos(this.state.id, left, top)
   }
 
   handleDoubleClick = (ev) => {
-    this.props.showPopup()
+    this.props.showPopup(this.state.id)
   }
 
   render = () => {
@@ -52,11 +35,9 @@ class MainBoardCardImpl extends React.Component {
         draggable="true"
         onDragStart={this.handleDragStart}
         onDragEnd={this.handleDragEnd}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMOuseLeave}
         onDoubleClick={this.handleDoubleClick}
         style={style_pos}>
-        <p>{this.props.text}</p>
+        <p>{this.props.name}</p>
       </div>
     )
   }
@@ -68,8 +49,8 @@ class MainBoardCard extends React.Component {
       <BambooConsumer>
         {(bamboo) => (
           <MainBoardCardImpl
-            showPopup={bamboo.actions.showPopup}
-            text={this.props.text}
+            {...bamboo.actions}
+            {...this.props}
           />
         )}
       </BambooConsumer>

@@ -13,8 +13,8 @@ let popup_bg_style = (display) => {
     width: '100%',
     height: '100%',
     overflow: 'auto',
-    backgroundColor: 'rgb(0, 0, 0)',
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    animation: 'fadein 0.3s'
   }
 }
 
@@ -27,11 +27,12 @@ class SettingPopupImpl extends React.Component {
         {(bamboo) => (
           <div
             className="popup-back"
-            onClick={this.handleClickBackground}
-            style={bamboo.state.popup}>
+            style={bamboo.state.popup_style}>
             <section className="popup-front">
               <button type="button" onClick={this.props.hidePopup}>Close</button>
-              <p>popup</p>
+              <p>
+                {JSON.stringify(this.props.popup_content)}
+              </p>
             </section>
           </div>
         )}
@@ -46,6 +47,7 @@ class SettingPopup extends React.Component {
       <BambooConsumer>
         {(bamboo) => (
           <SettingPopupImpl
+            {...bamboo.state}
             hidePopup={bamboo.actions.hidePopup}
           />
         )}

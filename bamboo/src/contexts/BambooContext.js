@@ -1,19 +1,20 @@
 import React from 'react';
 
-import DataReader from './nodes/DataReader'
-import DataWriter from './nodes/DataWriter'
+import DataReader from '../nodes/DataReader'
+import DataWriter from '../nodes/DataWriter'
 import { popup_bg_style } from '../components/popup/SettingPopup'
+import Values from '../global/Values'
 
 const Context = React.createContext();
 const { Provider, Consumer: BambooConsumer } = Context;
 
-let glob_count = 0
 
 class BambooProvider extends React.Component {
   state = {
     filename: '',
     graph: [],
-    popup: popup_bg_style('none'),
+    popup_style: popup_bg_style('none'),
+    popup_content: {},
   }
 
   actions = {
@@ -21,10 +22,10 @@ class BambooProvider extends React.Component {
       const graph = this.state.graph;
       switch (name) {
         case 'Data Reader':
-          graph.push(new DataReader(glob_count++));
+          graph.push(DataReader(Values.glob_count++));
           break;
         case 'Data Writer':
-          graph.push(new DataWriter(glob_count++));
+          graph.push(DataWriter(Values.glob_count++));
           break;
         default:
           console.error('Nodetype does not exist')
@@ -32,15 +33,24 @@ class BambooProvider extends React.Component {
       this.setState({ graph: graph });
       console.log(this.state.graph);
     },
-    showPopup: () => {
-      console.log("Show popup!!")
-      this.setState({ popup: popup_bg_style('block') })
+    showPopup: (key) => {
+      console.log("Show popup!! - ", key)
+      this.setState({ 
+        popup_style: popup_bg_style('block'),
+        popup_content: this.state.graph.find(node => node.key === key)
+      })
     },
-    hidePopup: () => { 
+    hidePopup: (key) => {
       console.log("hide popup!!")
-      this.setState({ popup: popup_bg_style('none') })
+      this.setState({ popup_style: popup_bg_style('none') })
+    },
+    setPos: (key, top, left) => {
+      const graph = this.state.graph;
+      let index = graph.findIndex(node => node.key === key)
+      graph[index].top = top
+      graph[index].left = left
+      this.setState({graph: graph})
     }
-
   }
 
   render = () => {
