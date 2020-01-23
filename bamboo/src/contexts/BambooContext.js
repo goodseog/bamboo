@@ -44,6 +44,10 @@ class BambooProvider extends React.Component {
       console.log("hide popup!!")
       this.setState({ popup_style: popup_bg_style('none') })
     },
+    savePopup: (key) => {
+      console.log("save popup!!")
+      this.setState({ popup_style: popup_bg_style('none') })
+    },
     setPos: (key, top, left) => {
       const graph = this.state.graph;
       let index = graph.findIndex(node => node.key === key)

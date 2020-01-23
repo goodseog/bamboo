@@ -4,6 +4,8 @@ import MainBoardCard from './MainBoardCard'
 import { BambooConsumer } from '../../contexts/BambooContext'
 import './MainBoard.css'
 
+import d3 from 'd3'
+
 
 class MainBoard extends React.Component {
   renderNode = (node) => {

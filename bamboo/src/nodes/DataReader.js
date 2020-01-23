@@ -1,3 +1,4 @@
+import React from 'react'
 import Values from '../global/Values'
 import Utils from '../global/Utils'
 
@@ -7,10 +8,9 @@ let DataReader = (key) => ({
   top: (Values.initPos + Values.initDiff * key),
   left: (Values.initPos + Values.initDiff * key),
   
-  status: {
-
-
-  },
+  status: [
+    <li></li>
+  ],
 
   render: () => {
     return this.type

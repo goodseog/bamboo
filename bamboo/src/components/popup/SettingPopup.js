@@ -21,6 +21,29 @@ let popup_bg_style = (display) => {
 class SettingPopupImpl extends React.Component {
   state = {};
 
+  decodeStatus = (status) => {
+    return (
+      <p>
+        {JSON.stringify(status)}
+      </p>
+    );
+  }
+
+  encodeStatus = () => {
+    const status = document.getElementById('popup-body')
+    console.log(status)
+    return status
+  }
+
+  handleSubmit = () => {
+    const status = this.encodeStatus();
+    this.props.savePopup()
+  }
+
+  handleClose = () => {
+    this.props.hidePopup()
+  }
+
   render = () => {
     return (
       <BambooConsumer>
@@ -29,10 +52,13 @@ class SettingPopupImpl extends React.Component {
             className="popup-back"
             style={bamboo.state.popup_style}>
             <section className="popup-front">
-              <button type="button" onClick={this.props.hidePopup}>Close</button>
-              <p>
-                {JSON.stringify(this.props.popup_content)}
-              </p>
+              <div id="popup-header">
+                <button type="button" onClick={this.handleSubmit}> Submit </button>
+                <button type="button" onClick={this.handleClose}>Close</button> 
+              </div>
+              <div id="popup-body">
+                {this.decodeStatus(this.props.popup_content.status)}
+              </div>              
             </section>
           </div>
         )}
@@ -48,7 +74,7 @@ class SettingPopup extends React.Component {
         {(bamboo) => (
           <SettingPopupImpl
             {...bamboo.state}
-            hidePopup={bamboo.actions.hidePopup}
+            {...bamboo.actions}
           />
         )}
       </BambooConsumer>
