@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BambooProvider } from './contexts/BambooContext'
+
 
 class App extends React.Component {
   state = {}
@@ -15,7 +17,9 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="App">
-        test
+        <BambooProvider>
+          test
+        </BambooProvider>
       </div>
     )
   }
