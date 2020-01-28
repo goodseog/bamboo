@@ -4,9 +4,18 @@ const Context = createContext();
 const { Provider, Consumer: BambooConsumer } = Context;
 
 class BambooProvider extends React.Component {
-  state = {}
+  state = {
+    filepath: '',
+    ncnt: 0,
+    nodes: [],
+  }
 
-  actions = {}
+  actions = {
+    createNode: () => {
+
+    },
+
+  }
 
   render() {
     const { state, actions } = this;
@@ -21,7 +30,7 @@ class BambooProvider extends React.Component {
 }
 
 function useBamboo(WrapperComponent) {
-  return function UseBamboo() {
+  return () => {
     return (
       <BambooConsumer>
         {({ state, actions }) => (
