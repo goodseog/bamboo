@@ -1,5 +1,7 @@
 import React, { createContext } from 'react'
 
+import DataReader from 'nodes/DataReader'
+
 const Context = createContext();
 const { Provider, Consumer: BambooConsumer } = Context;
 
@@ -12,7 +14,11 @@ class BambooProvider extends React.Component {
 
   actions = {
     createNode: () => {
-
+      let nodes = this.state.nodes
+      let ncnt = this.state.ncnt
+      let newNode = DataReader(ncnt++)
+      nodes.push(newNode)
+      this.setState({ nodes: nodes, ncnt: ncnt })
     },
 
   }
