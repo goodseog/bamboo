@@ -10,6 +10,7 @@ const StyledHeaderBar = styled.div`
   height: 50px;
   background-color: 'yellow';
   color: 'yellow';
+  border-bottom: solid 1px;
 `
 
 class HeaderBar extends React.Component {

@@ -1,4 +1,4 @@
-let NodeSetting = {
+let JsonInput = {
   'input': (name, type, value) => ({
     'type': type,
     'name': name,
@@ -26,7 +26,7 @@ function guid() {
     s4() + '-' + s4() + s4() + s4();
 }
 
-export default NodeSetting;
+export default JsonInput;
 export {
   guid
 }

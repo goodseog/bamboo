@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import MainBoardNode from 'components/mainboard/MainBoardNode'
 import { useBamboo } from 'contexts/BambooContext'
-
 
 const StyledMainBoard = styled.div`
   position: relative;
@@ -13,11 +13,10 @@ const StyledMainBoard = styled.div`
 `
 
 class MainBoard extends React.Component {
-
   render = () => {
     return (
       <StyledMainBoard>
-        mainboard
+        {this.props.nodes.map(node => <MainBoardNode />)}
       </StyledMainBoard>
     )
   }

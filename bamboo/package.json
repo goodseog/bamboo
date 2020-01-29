@@ -17,10 +17,10 @@
   "scripts": {
     "start": "npm-run-all --parallel start:**",
     "start:server": "python app.py",
-    "start:client": "NODE_PATH=src/ react-scripts start",
-    "build": "NODE_PATH=src/ react-scripts build",
-    "test": "NODE_PATH=src/ react-scripts test",
-    "eject": "NODE_PATH=src/ react-scripts eject"
+    "start:client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
