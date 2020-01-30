@@ -1,10 +1,21 @@
 import React from 'react';
 import axios from 'axios';
+import { createGlobalStyle } from 'styled-components'
 
-import HeaderBar from 'components/headerbar/HeaderBar'
+import Header from 'components/header/Header'
 import MainBoard from 'components/mainboard/MainBoard'
 import { BambooProvider } from 'contexts/BambooContext'
 
+const GlobalStyle = createGlobalStyle`
+  div {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+`
 
 class App extends React.Component {
   state = {}
@@ -19,7 +30,8 @@ class App extends React.Component {
   render = () => {
     return (
       <BambooProvider>
-        <HeaderBar />
+        <GlobalStyle />
+        <Header />
         <MainBoard />
       </BambooProvider>
     )

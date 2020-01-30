@@ -1,5 +1,6 @@
 import React, { createContext } from 'react'
 
+import JsonInput from 'nodes/JsonInput'
 import DataReader from 'nodes/DataReader'
 
 const Context = createContext();
@@ -20,6 +21,11 @@ class BambooProvider extends React.Component {
       nodes.push(newNode)
       this.setState({ nodes: nodes, ncnt: ncnt })
     },
+
+    showPopup: () => {
+      let popup = JsonInput.renderPopup(DataReader(10).nodes)
+      console.log(popup)
+    }
 
   }
 

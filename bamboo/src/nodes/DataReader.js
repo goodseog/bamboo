@@ -4,7 +4,7 @@ let DataReader = (ncnt) => ({
   'nid': guid(),
   'left': 60 + 20 * ncnt,
   'top': 60 + 20 * ncnt,
-  'properties': initProps(),
+  'nodes': initProps(),
   'next': []
 })
 

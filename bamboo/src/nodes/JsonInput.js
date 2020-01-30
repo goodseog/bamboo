@@ -8,14 +8,18 @@ let JsonInput = {
     'children': [],
   }),
 
-  renderPopup(inputs) {
-    return inputs.map(input => {
-      if (input.type  in ['text', 'file', 'password']){
-        return <input type={input.type} name={input.name} value={input.value}/>
-      } else if (input.type in ['radio']){
-        
+  renderPopup(inputs, display=true) {
+    let ret = []
+    inputs.forEach(input => {
+      let style = display === 'true' ? '' : 'display: none;'
+      if (input.type === 'radio') {
+        ret.push(<input type={input.type} name={input.name} value={input.value} checked={input.checked}/>)
+        ret = ret.concat(this.renderPopup(input.children, input.checked))
+      } else {
+        ret.push(<input type={input.type} name={input.name} value={input.value} style={style}/>)
       }
     })
+    return ret
   },
 }
 
