@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import MenuBarItem from 'components/header/MenuBarItem'
+import Values from 'global/Values'
 
 const StyledMenuBar = styled.div`
   display: inline-block;
@@ -13,9 +14,7 @@ const StyledMenuBar = styled.div`
 class MenuBar extends React.Component {
   render = () => (
     <StyledMenuBar>
-      <MenuBarItem name='File'/>
-      <MenuBarItem name='Data Source'/>
-      <MenuBarItem name='Engineer'/>
+      {Object.keys(Values.dropitems).map(name => <MenuBarItem name={name} />)}
     </StyledMenuBar>
   )
 }

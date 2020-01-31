@@ -19,20 +19,20 @@ class MenuBarItem extends React.Component {
   }
 
   handleMouseOver = (e) => {
-    this.setState({'display': 'block'});
+    this.setState({ 'display': 'block' });
   }
 
   handleMouseOut = (e) => {
-    this.setState({'display': 'none'});
+    this.setState({ 'display': 'none' });
   }
 
   render = () => {
     return (
-      <StyledMenuBarItem 
-        onMouseOver={this.handleMouseOver} 
+      <StyledMenuBarItem
+        onMouseOver={this.handleMouseOver}
         onMouseOut={this.handleMouseOut}>
         <p>{this.props.name}</p>
-        <MenuBox display={this.state.display} name={this.props.name}/>
+        <MenuBox display={this.state.display} name={this.props.name} />
       </StyledMenuBarItem>
     )
   }

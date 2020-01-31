@@ -6,6 +6,7 @@ import { useBamboo } from 'contexts/BambooContext'
 
 const StyledMainBoard = styled.div`
   position: relative;
+  top: 60px;
   width: 100%;
   height: 100%;
   background: white;
