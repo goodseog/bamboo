@@ -17,7 +17,8 @@ class MainBoard extends React.Component {
   render = () => {
     return (
       <StyledMainBoard>
-        {this.props.nodes.map(node => <MainBoardNode />)}
+        {/* {this.props.nodes.map(node => <MainBoardNode />)} */}
+        <ins data-revive-zoneid="1" data-revive-target="_blank" data-revive-id="a346a9b93b563fa54d4ce28735afb6bc"></ins>
       </StyledMainBoard>
     )
   }
