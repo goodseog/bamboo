@@ -14,7 +14,7 @@ class BambooProvider extends React.Component {
   }
 
   actions = {
-    createNode: () => {
+    createNode: (item) => {
       let nodes = this.state.nodes
       let ncnt = this.state.ncnt
       let newNode = DataReader(ncnt++)
@@ -42,11 +42,12 @@ class BambooProvider extends React.Component {
 }
 
 function useBamboo(WrapperComponent) {
-  return () => {
+  return (props) => {
     return (
       <BambooConsumer>
         {({ state, actions }) => (
-          <WrapperComponent {...state} {...actions} />
+          <WrapperComponent {...state} {...actions} {...props}>
+          </WrapperComponent>
         )}
       </BambooConsumer>
     )

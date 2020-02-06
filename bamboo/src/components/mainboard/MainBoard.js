@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import * as d3 from 'd3'
 
-import MainBoardNode from 'components/mainboard/MainBoardNode'
 import { useBamboo } from 'contexts/BambooContext'
 
 const StyledMainBoard = styled.div`
@@ -14,10 +14,26 @@ const StyledMainBoard = styled.div`
 `
 
 class MainBoard extends React.Component {
+  state = {}
+
   render = () => {
+    var svg = d3.select(this.refs.mainboard)
+      .append('svg')
+      .attr('width', '100%')
+      .attr('height', '100%')
+
+    svg.selectAll("rect")
+      .data([1,2,3,4]).enter()
+        .append('rect')
+        .attr('width', 100)
+        .attr('height', 60)
+        .attr('x', datapoint => datapoint * 100)
+        .attr('y', datapoint => datapoint * 100)
+        .attr('fill', 'green')
+
     return (
-      <StyledMainBoard>
-        {this.props.nodes.map(node => <MainBoardNode />)}
+      <StyledMainBoard ref='mainboard'>
+        {/* {console.log(this.props.nodes)} */}
       </StyledMainBoard>
     )
   }

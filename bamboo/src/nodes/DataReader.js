@@ -1,7 +1,8 @@
-import JsonInput, { guid } from 'nodes/JsonInput'
+import JsonInput from 'nodes/JsonInput'
+import Values from 'global/Values'
 
 let DataReader = (ncnt) => ({
-  'nid': guid(),
+  'nid': Values.guid(),
   'left': 60 + 20 * ncnt,
   'top': 60 + 20 * ncnt,
   'nodes': initProps(),
