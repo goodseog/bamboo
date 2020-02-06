@@ -13,8 +13,6 @@ const StyledHeader = styled.div`
   height: 60px;
   background: #538D1A;
   color: #E2DBAC;
-  font-size: 20px;
-  box-shadow: 0px 0px 3px 3px gray;
   z-index: 1;
 `
 

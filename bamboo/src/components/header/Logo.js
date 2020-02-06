@@ -3,13 +3,12 @@ import styled from 'styled-components'
 
 
 const StyledLogo = styled.div`
-  display: inline-block;
-  position: absolute;
+  display: table-cell;
   width: 160px;
   height: 60px;
-  margin-top: 15px;
-  text-align: center;
   font-size: 28px;
+  text-align: center;
+  vertical-align: middle;
 `
 
 class Logo extends React.Component{

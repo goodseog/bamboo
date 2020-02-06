@@ -4,10 +4,12 @@ import styled from 'styled-components'
 import MenuBox from 'components/header/MenuBox'
 
 const StyledMenuBarItem = styled.div`
-  display: inline-block;
+  display: table-cell;
   position: relative;
   width: 140px;
+  height: 60px;
   text-align: center;
+  vertical-align: middle;
   &:hover {
     background: #6E9A42;
   }
@@ -19,7 +21,7 @@ class MenuBarItem extends React.Component {
   }
 
   handleMouseOver = (e) => {
-    this.setState({ 'display': 'block' });
+    this.setState({ 'display': 'table' });
   }
 
   handleMouseOut = (e) => {
@@ -31,7 +33,7 @@ class MenuBarItem extends React.Component {
       <StyledMenuBarItem
         onMouseOver={this.handleMouseOver}
         onMouseOut={this.handleMouseOut}>
-        <p>{this.props.name}</p>
+        {this.props.name}
         <MenuBox display={this.state.display} name={this.props.name} />
       </StyledMenuBarItem>
     )
