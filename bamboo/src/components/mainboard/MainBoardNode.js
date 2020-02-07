@@ -3,25 +3,25 @@ import styled from 'styled-components'
 
 import { useBamboo } from 'contexts/BambooContext'
 
-const StyledMainBoard = styled.svg`
+const StyledMainBoardNode = styled.rect`
   position: relative;
   top: 60px;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 60px;
   background: white;
   color: black;
 `
 
-class MainBoard extends React.Component {
+class MainBoardNode extends React.Component {
   state = {}
 
   render = () => {
     return (
-      <StyledMainBoard ref='mainboard'>
+      <StyledMainBoardNode>
         {/* {console.log(this.props.nodes)} */}
-      </StyledMainBoard>
+      </StyledMainBoardNode>
     )
   }
 }
 
-export default useBamboo(MainBoard);
+export default useBamboo(MainBoardNode);
